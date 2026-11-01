@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  color: #1e1b4b;
+  background-color: #f3f0ff;
+  background-image:
+    radial-gradient(60% 50% at 8% 0%, rgba(34, 211, 238, 0.38), transparent 62%),
+    radial-gradient(50% 50% at 100% 8%, rgba(168, 85, 247, 0.32), transparent 62%),
+    radial-gradient(70% 60% at 50% 100%, rgba(103, 232, 249, 0.30), transparent 62%);
+  background-attachment: fixed;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.62);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 30px rgba(88, 28, 135, 0.1);
+}
+.leaflet-container { font-family: inherit; }
+/* Tailwind's preflight must not shrink Leaflet's images/SVG */
+.leaflet-container .leaflet-tile, .leaflet-container .leaflet-marker-icon { max-width: none !important; max-height: none !important; }
+
+@keyframes scan { from { top: 0; } to { top: calc(100% - 3px); } }
+.scan-line {
+  position: absolute; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, #22d3ee, #a855f7, transparent);
+  box-shadow: 0 0 18px 4px rgba(34, 211, 238, 0.6);
+  animation: scan 1.2s ease-in-out infinite alternate;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scan-line { animation: none; top: 50%; }
+  .animate-ping, .animate-pulse, .animate-spin { animation: none !important; }
+}

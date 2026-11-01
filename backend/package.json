@@ -1,0 +1,13 @@
+{
+  "name": "civicpulse-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CivicPulse JSON API (zero runtime dependencies, Node >= 22.9)",
+  "engines": { "node": ">=22.9" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/index.js",
+    "dev": "node --watch --env-file-if-exists=.env src/index.js",
+    "test": "node --test \"test/**/*.test.js\""
+  }
+}
