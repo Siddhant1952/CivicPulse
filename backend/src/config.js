@@ -14,7 +14,7 @@ export const MAX_DESCRIPTION = 500;
 export function loadConfig(env = process.env) {
   const dataDir = path.resolve(root, env.DATA_DIR || 'data');
   return {
-    port: Number(env.PORT || 4000),
+    port: process.env.PORT || Number.parseInt(env.PORT || 4000),
     dataDir,
     uploadDir: path.join(dataDir, 'uploads'),
     corsOrigin: env.CORS_ORIGIN || 'http://localhost:5173',
